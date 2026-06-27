@@ -15,9 +15,21 @@ run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scripts/Global.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[physics]
+
+2d/default_gravity=1800.0
 
 [rendering]
 
