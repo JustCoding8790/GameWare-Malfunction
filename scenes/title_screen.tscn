@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsofkltj4fhwe"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_1a6j8"]
+[ext_resource type="Texture2D" uid="uid://dwvl36ta1ni28" path="res://assets/backgrounds/Yellow.png" id="1_jw4hy"]
+[ext_resource type="FontFile" uid="uid://p04h4iqhiyov" path="res://assets/fonts/Square-Black.ttf" id="2_dsl0u"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_1a6j8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jw4hy")
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 225.0
+offset_right = 180.0
+offset_bottom = 565.0
+grow_horizontal = 2
+theme_override_constants/separation = 50
+
+[node name="Start" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_dsl0u")
+theme_override_font_sizes/font_size = 39
+text = "Start"
+
+[node name="Settings" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_dsl0u")
+theme_override_font_sizes/font_size = 39
+text = "Settings"
+
+[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_dsl0u")
+theme_override_font_sizes/font_size = 39
+text = "Quit"
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -370.5
+offset_top = 100.0
+offset_right = 370.5
+offset_bottom = 182.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.936788, 0.35591, 0.403371, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_dsl0u")
+theme_override_font_sizes/font_size = 81
+text = "GameWare Malfunction"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

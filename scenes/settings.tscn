@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ruqfwsjvwko"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_02uxl"]
+[ext_resource type="Texture2D" uid="uid://dx6i0vqp8r1s8" path="res://assets/backgrounds/Gray.png" id="2_ifrmp"]
+[ext_resource type="FontFile" uid="uid://p04h4iqhiyov" path="res://assets/fonts/Square-Black.ttf" id="3_knm0o"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_02uxl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ifrmp")
+stretch_mode = 1
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 100.0
+offset_right = 320.0
+offset_bottom = 182.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.560784, 0.560784, 0.560784, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_knm0o")
+theme_override_font_sizes/font_size = 81
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 225.0
+offset_right = 180.0
+offset_bottom = 565.0
+grow_horizontal = 2
+theme_override_constants/separation = 50
+
+[node name="Start" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_knm0o")
+theme_override_font_sizes/font_size = 39
+text = "Start"
+
+[node name="Settings" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_knm0o")
+theme_override_font_sizes/font_size = 39
+text = "Settings"
+
+[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_knm0o")
+theme_override_font_sizes/font_size = 39
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
