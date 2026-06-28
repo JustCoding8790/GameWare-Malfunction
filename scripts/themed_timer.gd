@@ -8,10 +8,10 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	timer.text = str(snapped(time, 0.1))
 
-func Timer(start_time: float):
+func timer_process(start_time: float):
 	time = start_time
 	
 	while time > 0.0:

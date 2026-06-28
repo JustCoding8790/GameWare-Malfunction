@@ -1,0 +1,227 @@
+[gd_scene load_steps=13 format=3 uid="uid://ewifc18s0df1"]
+
+[ext_resource type="Script" path="res://scripts/minigame_1.gd" id="1_sxck5"]
+[ext_resource type="Texture2D" uid="uid://tkbnvn8iuc8o" path="res://assets/backgrounds/Purple.png" id="2_sb4fc"]
+[ext_resource type="PackedScene" uid="uid://ddg874el3363o" path="res://scenes/player.tscn" id="3_do26k"]
+[ext_resource type="PackedScene" uid="uid://dtyhba1wk4r0h" path="res://scenes/themed_timer.tscn" id="4_t7ejr"]
+[ext_resource type="Script" path="res://scripts/platformer_ruby.gd" id="5_32usy"]
+[ext_resource type="Texture2D" uid="uid://d4it76bhofsef" path="res://assets/minigames/platformer1/gem_red.png" id="6_jhslv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeje6"]
+size = Vector2(1152, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l6p2"]
+size = Vector2(198.75, 40.5)
+
+[sub_resource type="Animation" id="Animation_q5c2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRuby:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 65)]
+}
+
+[sub_resource type="Animation" id="Animation_gfx8g"]
+resource_name = "floating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRuby:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(50, 65), Vector2(50, 57), Vector2(50, 65)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0d0o"]
+_data = {
+"RESET": SubResource("Animation_q5c2o"),
+"floating": SubResource("Animation_gfx8g")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ypfu"]
+radius = 22.0227
+
+[node name="Platformer" type="Node2D"]
+script = ExtResource("1_sxck5")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(1, 609)
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_right = 1152.0
+offset_bottom = 40.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(574, 19)
+shape = SubResource("RectangleShape2D_eeje6")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(150, 489)
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_right = 200.0
+offset_bottom = 40.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(100, 20)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(450, 399)
+
+[node name="ColorRect" type="ColorRect" parent="Platform2"]
+offset_right = 200.0
+offset_bottom = 40.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(100, 20)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(750, 309)
+
+[node name="ColorRect" type="ColorRect" parent="Platform3"]
+offset_right = 200.0
+offset_bottom = 40.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(100, 20)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="Platform4" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(350, 219)
+
+[node name="ColorRect" type="ColorRect" parent="Platform4"]
+offset_right = 200.0
+offset_bottom = 40.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
+position = Vector2(100, 20)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="Platform5" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(0, 129)
+
+[node name="ColorRect" type="ColorRect" parent="Platform5"]
+offset_right = 200.0
+offset_bottom = 40.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5"]
+position = Vector2(100, 20)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="Platform6" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(952, 174)
+
+[node name="ColorRect" type="ColorRect" parent="Platform6"]
+offset_right = 200.0
+offset_bottom = 40.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6"]
+position = Vector2(100, 20)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="ScrollingBackground" type="Parallax2D" parent="."]
+z_index = 5
+repeat_times = 1000
+
+[node name="Background" type="TextureRect" parent="ScrollingBackground"]
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("2_sb4fc")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("3_do26k")]
+z_index = 12
+position = Vector2(86, 545)
+
+[node name="ThemedTimer" parent="." instance=ExtResource("4_t7ejr")]
+z_index = 16
+position = Vector2(0, 568)
+
+[node name="Rubies" type="Node2D" parent="."]
+
+[node name="Ruby" type="Node2D" parent="Rubies"]
+script = ExtResource("5_32usy")
+
+[node name="TextureRuby" type="TextureRect" parent="Rubies/Ruby"]
+z_index = 10
+offset_left = 50.0
+offset_top = 65.0
+offset_right = 178.0
+offset_bottom = 193.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_jhslv")
+
+[node name="animation" type="AnimationPlayer" parent="Rubies/Ruby"]
+libraries = {
+"": SubResource("AnimationLibrary_r0d0o")
+}
+
+[node name="Area2D" type="Area2D" parent="Rubies/Ruby"]
+z_index = 12
+position = Vector2(82, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rubies/Ruby/Area2D"]
+shape = SubResource("CircleShape2D_6ypfu")
+
+[node name="Ruby2" type="Node2D" parent="Rubies"]
+position = Vector2(1000, 45)
+script = ExtResource("5_32usy")
+
+[node name="TextureRuby" type="TextureRect" parent="Rubies/Ruby2"]
+z_index = 10
+offset_left = 50.0
+offset_top = 65.0
+offset_right = 178.0
+offset_bottom = 193.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_jhslv")
+
+[node name="animation" type="AnimationPlayer" parent="Rubies/Ruby2"]
+libraries = {
+"": SubResource("AnimationLibrary_r0d0o")
+}
+
+[node name="Area2D" type="Area2D" parent="Rubies/Ruby2"]
+z_index = 12
+position = Vector2(82, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rubies/Ruby2/Area2D"]
+shape = SubResource("CircleShape2D_6ypfu")
+
+[connection signal="ruby_collected" from="Rubies/Ruby" to="." method="ruby_collect"]
+[connection signal="ruby_collected" from="Rubies/Ruby2" to="." method="ruby_collect"]

@@ -11,10 +11,10 @@ var time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await timer_process(5.0)
+	await timer_process(2.0)
 	if Global.minigames_done < 3:
-		Global.minigames_done += 1
 		get_tree().change_scene_to_file("res://scenes/minigame_" + str(Global.minigames_done) + ".tscn")
+		Global.minigames_done += 1
 	else:
 		get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
 
