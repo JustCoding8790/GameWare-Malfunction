@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cprohffoqkyn2"
-path="res://.godot/imported/gem_blue.png-cbc7377882d1e235a91dfee5d75ebb8b.ctex"
+uid="uid://bffhhwa5mgb04"
+path="res://.godot/imported/gem_green.png-3a4760df94124b0a167e2661fe0db9a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigames/gem_blue.png"
-dest_files=["res://.godot/imported/gem_blue.png-cbc7377882d1e235a91dfee5d75ebb8b.ctex"]
+source_file="res://assets/minigames/clicker1/gem_green.png"
+dest_files=["res://.godot/imported/gem_green.png-3a4760df94124b0a167e2661fe0db9a2.ctex"]
 
 [params]
 
