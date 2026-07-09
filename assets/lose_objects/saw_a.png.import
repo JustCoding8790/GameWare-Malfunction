@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cobd4ax0s1584"
-path="res://.godot/imported/key_blue.png-2aa4f5cda64f41225431ed50f5ec3112.ctex"
+uid="uid://xlr4vbb1cbqv"
+path="res://.godot/imported/saw_a.png-e6f12c41962548df841e1a8d3bf33510.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigames/key_blue.png"
-dest_files=["res://.godot/imported/key_blue.png-2aa4f5cda64f41225431ed50f5ec3112.ctex"]
+source_file="res://assets/lose_objects/saw_a.png"
+dest_files=["res://.godot/imported/saw_a.png-e6f12c41962548df841e1a8d3bf33510.ctex"]
 
 [params]
 

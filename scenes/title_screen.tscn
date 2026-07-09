@@ -43,7 +43,8 @@ layout_mode = 2
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_dsl0u")
 theme_override_font_sizes/font_size = 39
-text = "Settings"
+disabled = true
+text = "[Coming Soon]"
 
 [node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
@@ -63,10 +64,27 @@ offset_right = 370.5
 offset_bottom = 182.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.936788, 0.35591, 0.403371, 1)
-theme_override_constants/outline_size = 30
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_dsl0u")
 theme_override_font_sizes/font_size = 81
 text = "GameWare Malfunction"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -370.5
+offset_top = 154.0
+offset_right = 370.5
+offset_bottom = 236.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.922763, 0.685609, 0.28706, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_dsl0u")
+theme_override_font_sizes/font_size = 45
+text = "Demo Version"
 horizontal_alignment = 1
 vertical_alignment = 1
 

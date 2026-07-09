@@ -1,9 +1,122 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2k044dc5dkem"]
+[gd_scene load_steps=19 format=3 uid="uid://b2k044dc5dkem"]
 
 [ext_resource type="Texture2D" uid="uid://dwvl36ta1ni28" path="res://assets/backgrounds/Yellow.png" id="1_4jnv2"]
 [ext_resource type="Script" path="res://scripts/timer_screen.gd" id="1_ntnhe"]
 [ext_resource type="FontFile" uid="uid://p04h4iqhiyov" path="res://assets/fonts/Square-Black.ttf" id="2_jvnc8"]
 [ext_resource type="Texture2D" uid="uid://brwj55kyvs4n2" path="res://assets/lives/star.png" id="3_knfmj"]
+[ext_resource type="Texture2D" uid="uid://xlr4vbb1cbqv" path="res://assets/lose_objects/saw_a.png" id="5_cao0l"]
+[ext_resource type="Texture2D" uid="uid://dx6i0vqp8r1s8" path="res://assets/backgrounds/Gray.png" id="5_pbrvm"]
+[ext_resource type="Texture2D" uid="uid://bopmlh28uwhqb" path="res://assets/backgrounds/Brown.png" id="7_2w1l5"]
+[ext_resource type="Texture2D" uid="uid://n3qguwtqofrs" path="res://assets/win_objects/coin_gold.png" id="8_6pt14"]
+[ext_resource type="Texture2D" uid="uid://cprohffoqkyn2" path="res://assets/minigames/clicker1/gem_blue.png" id="9_e6ugx"]
+
+[sub_resource type="Animation" id="Animation_c4a33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_6fw4f"]
+resource_name = "zoom_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1, 108, 81]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c457o"]
+_data = {
+"RESET": SubResource("Animation_c4a33"),
+"zoom_in": SubResource("Animation_6fw4f")
+}
+
+[sub_resource type="Animation" id="Animation_opevm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -650)]
+}
+
+[sub_resource type="Animation" id="Animation_or456"]
+resource_name = "fly_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -650), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynvjk"]
+_data = {
+"RESET": SubResource("Animation_opevm"),
+"fly_in": SubResource("Animation_or456")
+}
+
+[sub_resource type="Animation" id="Animation_shmo5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -650)]
+}
+
+[sub_resource type="Animation" id="Animation_h8lda"]
+resource_name = "fly_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -650), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7vq2"]
+_data = {
+"RESET": SubResource("Animation_shmo5"),
+"fly_in": SubResource("Animation_h8lda")
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ntnhe")
@@ -24,11 +137,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -320.0
-offset_top = 125.0
+offset_top = 109.0
 offset_right = 320.0
-offset_bottom = 245.0
+offset_bottom = 229.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.560784, 0.560784, 0.560784, 1)
+theme_override_colors/font_color = Color(0.850867, 0.428651, 7.70092e-07, 1)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_jvnc8")
 theme_override_font_sizes/font_size = 84
@@ -81,3 +194,200 @@ texture = ExtResource("3_knfmj")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("3_knfmj")
+
+[node name="GameInstruction" type="Label" parent="CanvasLayer"]
+z_index = 12
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -370.5
+offset_top = 292.0
+offset_right = 370.5
+offset_bottom = 374.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.936788, 0.35591, 0.403371, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_jvnc8")
+theme_override_font_sizes/font_size = 1
+text = "Get to the ruby!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InstructionAnimation" type="AnimationPlayer" parent="CanvasLayer/GameInstruction"]
+libraries = {
+"": SubResource("AnimationLibrary_c457o")
+}
+
+[node name="CanvasLose" type="CanvasLayer" parent="."]
+offset = Vector2(0, -650)
+transform = Transform2D(1, 0, 0, 1, 0, -650)
+
+[node name="LoseBanner" type="TextureRect" parent="CanvasLose"]
+z_index = 8
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 275.0
+offset_right = 400.0
+offset_bottom = 435.0
+grow_horizontal = 2
+texture = ExtResource("5_pbrvm")
+stretch_mode = 1
+
+[node name="LoseSaw" type="TextureRect" parent="CanvasLose"]
+z_index = 9
+offset_left = 155.0
+offset_top = 298.0
+offset_right = 283.0
+offset_bottom = 426.0
+rotation = -0.523599
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("5_cao0l")
+
+[node name="LoseSaw2" type="TextureRect" parent="CanvasLose"]
+z_index = 9
+offset_left = 858.0
+offset_top = 218.0
+offset_right = 986.0
+offset_bottom = 346.0
+rotation = 0.523599
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("5_cao0l")
+
+[node name="LoseText" type="Label" parent="CanvasLose"]
+z_index = 10
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 300.0
+offset_right = 320.0
+offset_bottom = 427.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.560784, 0.560784, 0.560784, 1)
+theme_override_constants/outline_size = 45
+theme_override_fonts/font = ExtResource("2_jvnc8")
+theme_override_font_sizes/font_size = 126
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseOutline" type="ColorRect" parent="CanvasLose"]
+offset_left = 168.0
+offset_top = 267.0
+offset_right = 984.0
+offset_bottom = 443.0
+color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[node name="LoseAnimation" type="AnimationPlayer" parent="CanvasLose"]
+libraries = {
+"": SubResource("AnimationLibrary_ynvjk")
+}
+
+[node name="CanvasWin" type="CanvasLayer" parent="."]
+offset = Vector2(0, -650)
+transform = Transform2D(1, 0, 0, 1, 0, -650)
+
+[node name="LoseBanner" type="TextureRect" parent="CanvasWin"]
+z_index = 8
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 275.0
+offset_right = 400.0
+offset_bottom = 435.0
+grow_horizontal = 2
+texture = ExtResource("7_2w1l5")
+stretch_mode = 1
+
+[node name="WinCoin" type="TextureRect" parent="CanvasWin"]
+z_index = 9
+offset_left = 191.0
+offset_top = 225.0
+offset_right = 319.0
+offset_bottom = 353.0
+rotation = -0.261799
+scale = Vector2(2, 2)
+texture = ExtResource("8_6pt14")
+
+[node name="WinCoin2" type="TextureRect" parent="CanvasWin"]
+z_index = 9
+offset_left = 712.0
+offset_top = 160.0
+offset_right = 840.0
+offset_bottom = 288.0
+rotation = 0.261799
+scale = Vector2(2, 2)
+texture = ExtResource("8_6pt14")
+
+[node name="LoseText" type="Label" parent="CanvasWin"]
+z_index = 10
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 300.0
+offset_right = 320.0
+offset_bottom = 427.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.963808, 0.758893, 0, 1)
+theme_override_constants/outline_size = 45
+theme_override_fonts/font = ExtResource("2_jvnc8")
+theme_override_font_sizes/font_size = 126
+text = "VICTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseOutline" type="ColorRect" parent="CanvasWin"]
+offset_left = 168.0
+offset_top = 267.0
+offset_right = 984.0
+offset_bottom = 443.0
+color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[node name="WinGem" type="TextureRect" parent="CanvasWin"]
+z_index = 9
+offset_left = 171.0
+offset_top = 298.0
+offset_right = 299.0
+offset_bottom = 426.0
+rotation = -0.523599
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("9_e6ugx")
+
+[node name="WinGem2" type="TextureRect" parent="CanvasWin"]
+z_index = 9
+offset_left = 842.0
+offset_top = 218.0
+offset_right = 970.0
+offset_bottom = 346.0
+rotation = 0.523599
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("9_e6ugx")
+
+[node name="WinGem3" type="TextureRect" parent="CanvasWin"]
+z_index = 9
+offset_left = 220.0
+offset_top = 322.0
+offset_right = 348.0
+offset_bottom = 450.0
+rotation = -0.261799
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("9_e6ugx")
+
+[node name="WinGem4" type="TextureRect" parent="CanvasWin"]
+z_index = 9
+offset_left = 778.0
+offset_top = 282.0
+offset_right = 906.0
+offset_bottom = 410.0
+rotation = 0.261799
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("9_e6ugx")
+
+[node name="WinAnimation" type="AnimationPlayer" parent="CanvasWin"]
+libraries = {
+"": SubResource("AnimationLibrary_s7vq2")
+}

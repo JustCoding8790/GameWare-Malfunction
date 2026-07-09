@@ -17,9 +17,9 @@ func timer_process(start_time: float):
 	while time > 0.0:
 		await wait(0.1)
 		time = time - 0.1
-		if (time > 6.0 and start_time == 8.0) or (time > 8.0 and start_time == 16.0):
+		if (time > 3.0 and start_time == 4.0) or (time > 6.0 and start_time == 8.0):
 			timer.add_theme_color_override("font_color", Color("#52a96b"))
-		elif time > 4.0:
+		elif (time > 2.0 and start_time == 4.0) or (time > 4.0 and start_time == 8.0):
 			timer.add_theme_color_override("font_color", Color("#e1b100"))
 		else:
 			timer.add_theme_color_override("font_color", Color("#ef5b67"))

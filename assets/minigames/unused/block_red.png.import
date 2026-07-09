@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uq61ei4plehg"
-path="res://.godot/imported/key_yellow.png-bd88b4743fc3c22005b86b4c758ec346.ctex"
+uid="uid://bfn2py6gm3hee"
+path="res://.godot/imported/block_red.png-3c6cac2a573230cefc8280b9bc640176.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigames/key_yellow.png"
-dest_files=["res://.godot/imported/key_yellow.png-bd88b4743fc3c22005b86b4c758ec346.ctex"]
+source_file="res://assets/minigames/unused/block_red.png"
+dest_files=["res://.godot/imported/block_red.png-3c6cac2a573230cefc8280b9bc640176.ctex"]
 
 [params]
 

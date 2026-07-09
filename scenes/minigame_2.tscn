@@ -1,0 +1,331 @@
+[gd_scene load_steps=25 format=3 uid="uid://boyen8ohx8l05"]
+
+[ext_resource type="Script" path="res://piping1.gd" id="1_in2h7"]
+[ext_resource type="PackedScene" uid="uid://ddg874el3363o" path="res://scenes/player.tscn" id="3_qwgeg"]
+[ext_resource type="Texture2D" uid="uid://bbc6871cb7gd6" path="res://assets/backgrounds/Pink.png" id="4_coelp"]
+[ext_resource type="PackedScene" uid="uid://dtyhba1wk4r0h" path="res://scenes/themed_timer.tscn" id="4_oor81"]
+[ext_resource type="Script" path="res://scripts/platformer_ruby.gd" id="5_aenmt"]
+[ext_resource type="Texture2D" uid="uid://d4it76bhofsef" path="res://assets/minigames/platformer1/gem_red.png" id="6_yo1dl"]
+[ext_resource type="Script" path="res://teleport_door.gd" id="7_bq1cf"]
+[ext_resource type="Texture2D" uid="uid://dpq84716wju22" path="res://assets/minigames/piping1/door_open_top.png" id="8_enws4"]
+[ext_resource type="Texture2D" uid="uid://b22xccrv7a4v4" path="res://assets/minigames/flag_red_a.png" id="9_bhw0m"]
+[ext_resource type="Texture2D" uid="uid://emnfrndmcke1" path="res://assets/minigames/flag_red_b.png" id="10_brtvf"]
+[ext_resource type="Texture2D" uid="uid://d3cr0k30s32mg" path="res://assets/minigames/flag_blue_a.png" id="11_7ftr1"]
+[ext_resource type="Texture2D" uid="uid://db7kia4h43ltk" path="res://assets/minigames/flag_blue_b.png" id="12_53at7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeje6"]
+size = Vector2(1152, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v70js"]
+size = Vector2(1151, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l6p2"]
+size = Vector2(38.375, 163.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdapa"]
+size = Vector2(112, 119)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ypfu"]
+radius = 22.0227
+
+[sub_resource type="Animation" id="Animation_q5c2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area2D/TextureRuby:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 65)]
+}
+
+[sub_resource type="Animation" id="Animation_gfx8g"]
+resource_name = "floating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area2D/TextureRuby:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(50, 65), Vector2(50, 57), Vector2(50, 65)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0d0o"]
+_data = {
+"RESET": SubResource("Animation_q5c2o"),
+"floating": SubResource("Animation_gfx8g")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paax6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex13d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krdaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_bhw0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_brtvf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsh3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7ftr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_53at7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Piping1" type="Node2D"]
+script = ExtResource("1_in2h7")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(1, 609)
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_right = 1152.0
+offset_bottom = 40.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(574, 19)
+shape = SubResource("RectangleShape2D_eeje6")
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(0, 269)
+
+[node name="ColorRect" type="ColorRect" parent="Ground2"]
+offset_right = 1152.0
+offset_bottom = 190.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+position = Vector2(575, 95)
+shape = SubResource("RectangleShape2D_v70js")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(0, 459)
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_right = 40.0
+offset_bottom = 150.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(20, 83)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(1112, 459)
+
+[node name="ColorRect" type="ColorRect" parent="Platform2"]
+offset_right = 40.0
+offset_bottom = 150.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(20, 83)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+z_index = 10
+position = Vector2(556, 459)
+
+[node name="ColorRect" type="ColorRect" parent="Platform3"]
+offset_right = 40.0
+offset_bottom = 150.0
+color = Color(0.357417, 0.672158, 0.211183, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(20, 83)
+shape = SubResource("RectangleShape2D_5l6p2")
+
+[node name="Player" parent="." instance=ExtResource("3_qwgeg")]
+z_index = 12
+position = Vector2(574, 205)
+
+[node name="ThemedTimer" parent="." instance=ExtResource("4_oor81")]
+z_index = 16
+position = Vector2(0, 568)
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("4_coelp")
+stretch_mode = 1
+
+[node name="TeleportDoorRed" type="Area2D" parent="."]
+z_index = 4
+position = Vector2(155, 205)
+script = ExtResource("7_bq1cf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeleportDoorRed"]
+texture = ExtResource("8_enws4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportDoorRed"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_vdapa")
+
+[node name="TeleportDoorRed2" type="Area2D" parent="."]
+z_index = 4
+position = Vector2(155, 544)
+script = ExtResource("7_bq1cf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeleportDoorRed2"]
+texture = ExtResource("8_enws4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportDoorRed2"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_vdapa")
+
+[node name="TeleportDoorBlue" type="Area2D" parent="."]
+z_index = 4
+position = Vector2(987, 205)
+script = ExtResource("7_bq1cf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeleportDoorBlue"]
+texture = ExtResource("8_enws4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportDoorBlue"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_vdapa")
+
+[node name="TeleportDoorBlue2" type="Area2D" parent="."]
+z_index = 4
+position = Vector2(987, 544)
+script = ExtResource("7_bq1cf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeleportDoorBlue2"]
+texture = ExtResource("8_enws4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportDoorBlue2"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_vdapa")
+
+[node name="Ruby" type="Area2D" parent="."]
+z_index = 12
+position = Vector2(82, 88)
+script = ExtResource("5_aenmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruby"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_6ypfu")
+
+[node name="TextureRuby" type="TextureRect" parent="Ruby"]
+z_index = 10
+offset_left = -32.0
+offset_top = -23.0
+offset_right = 96.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_yo1dl")
+
+[node name="animation" type="AnimationPlayer" parent="Ruby"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_r0d0o")
+}
+
+[node name="SpawnPoint" type="Area2D" parent="."]
+position = Vector2(476, 544)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoint"]
+shape = SubResource("RectangleShape2D_paax6")
+disabled = true
+
+[node name="SpawnPoint2" type="Area2D" parent="."]
+position = Vector2(676, 544)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoint2"]
+shape = SubResource("RectangleShape2D_paax6")
+disabled = true
+
+[node name="FlagRed" type="Area2D" parent="."]
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagRed"]
+shape = SubResource("RectangleShape2D_ex13d")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlagRed"]
+position = Vector2(250.667, 128)
+sprite_frames = SubResource("SpriteFrames_krdaw")
+autoplay = "default"
+frame_progress = 0.869199
+
+[node name="FlagBlue" type="Area2D" parent="."]
+position = Vector2(765, 0)
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagBlue"]
+shape = SubResource("RectangleShape2D_ex13d")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlagBlue"]
+position = Vector2(253.333, 128)
+sprite_frames = SubResource("SpriteFrames_xsh3j")
+autoplay = "default"
+frame_progress = 0.944939
+flip_h = true
+
+[node name="FlagRed2" type="Area2D" parent="."]
+position = Vector2(128, 464)
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagRed2"]
+shape = SubResource("RectangleShape2D_ex13d")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlagRed2"]
+position = Vector2(250.667, 128)
+sprite_frames = SubResource("SpriteFrames_krdaw")
+autoplay = "default"
+frame_progress = 0.0379571
+
+[node name="FlagBlue2" type="Area2D" parent="."]
+position = Vector2(637, 464)
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagBlue2"]
+shape = SubResource("RectangleShape2D_ex13d")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlagBlue2"]
+position = Vector2(253.333, 128)
+sprite_frames = SubResource("SpriteFrames_xsh3j")
+autoplay = "default"
+frame_progress = 0.113698
+flip_h = true
+
+[connection signal="body_entered" from="TeleportDoorRed" to="TeleportDoorRed" method="_on_body_entered"]
+[connection signal="body_entered" from="TeleportDoorBlue" to="TeleportDoorBlue" method="_on_body_entered"]
