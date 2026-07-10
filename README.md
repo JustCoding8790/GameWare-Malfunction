@@ -11,6 +11,9 @@
         <br />
         <br />
         <a href="https://godotengine.org/asset-library/asset/3484">Play GameWare Malfunction Now On Itch.io</a>
+        <br />
+        <br />
+        <a href="https://kenney.nl/assets/new-platformer-pack">CC0 Assets I Used Are Here</a>
     </p>
     <h2 align="center"> Microgame Instructions </h2>
     <h3 align="center"> Microgame #1: Classic as a Ruby </h3>
