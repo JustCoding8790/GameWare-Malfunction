@@ -10,7 +10,7 @@
         Complete a set of fast-paced microgames coming from your virus-infected video games.
         <br />
         <br />
-        <a href="https://godotengine.org/asset-library/asset/3484">Play GameWare Malfunction Now On Itch.io</a>
+        <a href="https://justcoding8790.itch.io/gameware-malfunction">Play GameWare Malfunction Now On Itch.io</a>
         <br />
         <br />
         <a href="https://kenney.nl/assets/new-platformer-pack">CC0 Assets I Used Are Here</a>
